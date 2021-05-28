@@ -253,11 +253,19 @@ class DefaultAssetPickerProvider
         ) {
     Constants.sortPathDelegate = sortPathDelegate ?? SortPathDelegate.common;
     Future<void>.delayed(routeDuration).then(
-      (dynamic _) async {
-        await getAssetPathList();
-        await getAssetList();
+      (dynamic _) {
+        PhotoManager.addChangeCallback((_) async {
+         setAssets();
+        });
+        PhotoManager.startChangeNotify();
+        setAssets();
       },
     );
+  }
+
+  Future<void> setAssets() async {
+    await getAssetPathList();
+    await getAssetList();
   }
 
   /// Request assets type.
@@ -384,5 +392,11 @@ class DefaultAssetPickerProvider
     final Uint8List? assetData =
         await asset.thumbDataWithSize(pathThumbSize, pathThumbSize);
     return assetData;
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    PhotoManager.stopChangeNotify();
   }
 }
