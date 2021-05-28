@@ -41,7 +41,7 @@ class FixedAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   /// Padding for actions.
   /// 尾部操作部分的内边距
-  final EdgeInsetsDirectional? actionsPadding;
+  final EdgeInsetsGeometry? actionsPadding;
 
   /// This widget appears across the bottom of the app bar.
   /// 显示在顶栏下方的 widget
@@ -89,21 +89,19 @@ class FixedAppBar extends StatelessWidget implements PreferredSizeWidget {
     Widget child = Container(
       width: Screens.width,
       height: (height ?? kToolbarHeight) + MediaQuery.of(context).padding.top,
-      padding: EdgeInsetsDirectional.only(
-        top: MediaQuery.of(context).padding.top,
-      ),
+      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
       child: Stack(
         children: <Widget>[
           if (automaticallyImplyLeading && Navigator.of(context).canPop())
             leading ?? const BackButton(),
           if (_title != null)
-            PositionedDirectional(
+            Positioned(
               top: 0.0,
               bottom: 0.0,
-              start: automaticallyImplyLeading && Navigator.of(context).canPop()
+              left: automaticallyImplyLeading && Navigator.of(context).canPop()
                   ? _effectiveHeight
                   : 0.0,
-              end: _effectiveHeight,
+              right: _effectiveHeight,
               child: Align(
                 alignment: centerTitle
                     ? Alignment.center
@@ -146,12 +144,11 @@ class FixedAppBar extends StatelessWidget implements PreferredSizeWidget {
       );
     }
 
-    final ThemeData themeData = Theme.of(context);
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: themeData.appBarTheme.systemOverlayStyle ??
-          (themeData.effectiveBrightness.isDark
+      value:
+          (Theme.of(context).appBarTheme.brightness ?? Brightness.dark).isDark
               ? SystemUiOverlayStyle.light
-              : SystemUiOverlayStyle.dark),
+              : SystemUiOverlayStyle.dark,
       child: Material(
         type: color.isTransparent
             ? MaterialType.transparency

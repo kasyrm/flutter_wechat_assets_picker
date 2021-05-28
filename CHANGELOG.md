@@ -4,52 +4,6 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## 5.5.3+1
-
-- Fix static analysis issue.
-
-## 5.5.3
-
-- Use `SystemUiOverlayStyle` from the provided theme first.
-
-## 5.5.2
-
-- Add German language text delegate. (Thanks to @Letalus)
-- Add Russian language text delegate. (Thanks to @greymag)
-
-## 5.5.1
-
-- Implement `RenderToggleable` to support other channels of flutter (2.1.x - 2.3.x). (Thanks to @Letalus)
-
-## 5.5.0
-
-- Add `findChildIndexBuilder` to indicates grid find reusable `RenderObject`.
-- Fix padding issue for the assets' grid.
-
-## 5.4.3
-
-- Fix missing `ScrollController` in the scroll view.
-
-## 5.4.2
-
-- Split `AssetGridItemBuidler` to solve the rebuild issue.
-- Fix GIF indicator stretched issue.
-
-## 5.4.1
-
-- Export `AssetPickerPageRoute`.
-
-## 5.4.0+1
-
-- Fix format that pub.dev suggest.
-
-## 5.4.0
-
-- Fully support RTL languages.
-- Add control for root navigator.
-- Improve `AssetEntityImageProvider`'s constructor and decode.
-- Grab iOS/macOS thumbnail's size fix from `photo_manager`.
-
 ## 5.3.0
 
 - Add `gridThumbSize` to control thumbnails in the select grid.

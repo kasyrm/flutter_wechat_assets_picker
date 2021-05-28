@@ -39,7 +39,6 @@ class AssetPicker<A, P> extends StatelessWidget {
     IndicatorBuilder? loadingIndicatorBuilder,
     SpecialItemPosition specialItemPosition = SpecialItemPosition.none,
     bool allowSpecialItemWhenEmpty = false,
-    bool useRootNavigator = true,
     Curve routeCurve = Curves.easeIn,
     Duration routeDuration = const Duration(milliseconds: 300),
   }) async {
@@ -109,9 +108,9 @@ class AssetPicker<A, P> extends StatelessWidget {
         );
         final List<AssetEntity>? result = await Navigator.of(
           context,
-          rootNavigator: useRootNavigator,
+          rootNavigator: true,
         ).push<List<AssetEntity>>(
-          AssetPickerPageRoute<List<AssetEntity>>(
+          SlidePageTransitionBuilder<List<AssetEntity>>(
             builder: picker,
             transitionCurve: routeCurve,
             transitionDuration: routeDuration,

@@ -19,12 +19,9 @@ Language: [English](README.md) | 中文简体
 
 所有的界面细节基于 微信 7.x 版本，将在微信版本更新后随时进行跟进。
 
-**贴士：** 如果你觉得你的自定义实现会在某些程度上帮助其他人实现他们的需求，你可以通过 PR 提交你的实现。
-更多信息请参考 [贡献自定义实现](example/lib/customs/CONTRIBUTING.md) 。
-
 ## 目录 🗂
 
-* [迁移指南](#迁移指南-%EF%B8%8F)
+* [迁移指南](#迁移指南-)
 * [特性](#特性-)
 * [截图](#截图-)
 * [准备工作](#准备工作-)
@@ -54,22 +51,21 @@ Language: [English](README.md) | 中文简体
 
 ## 特性 ✨
 
-- ♻️ 支持基于代理重载的全量自定义
-- 💚 99% 的微信风格
-- ⚡️ 根据参数可调的性能优化
-- 📷 图片资源支持
-  - 🔬 HEIC/HEIF 格式图片支持
-- 🎥 视频资源支持
-- 🎶 音频资源支持
-- 1️⃣ 单资源模式
-- 💱 国际化支持
-  - ⏪ RTL 语言支持
-- ➕ 特殊 widget 构建支持（前置/后置）
-- 🗂 自定义路径排序支持
-- 📝 自定义文本构建支持
-- ⏳ 自定义筛选规则支持（ `photo_manager` ）
-- 🎏 完整的自定义主题
-- 💻 支持 MacOS
+- [x] ♻️ 支持基于代理重载的全量自定义
+- [x] 💚 99% 的微信风格
+- [x] ⚡️ 根据参数可调的性能优化
+- [x] 📷 图片资源支持
+  - [x] 🔬HEIC 格式图片支持
+- [x] 🎥 视频资源支持
+- [x] 🎶 音频资源支持
+- [x] 1️⃣ 单资源模式
+- [x] 💱 国际化支持
+- [x] ➕ 特殊 widget 构建支持（前置/后置）
+- [x] 🗂 自定义路径排序支持
+- [x] 📝 自定义文本构建支持
+- [x] ⏳ 自定义筛选规则支持（ `photo_manager` ）
+- [x] 🎏 完整的自定义主题
+- [x] 💻 支持 MacOS
 
 ## 截图 📸
 
@@ -211,12 +207,12 @@ AssetPicker.registerObserve(); // 注册回调
 AssetPicker.unregisterObserve(); // 取消注册回调
 ```
 
-### 自定义类型或 UI
+### Customize with your own type or UI
 
 `AssetPickerBuilderDelegate`、`AssetPickerViewerBuilderDelegate`、`AssetPickerProvider` 及
-`AssetPickerViewerProvider` 均已暴露且可重载。使用者可以使用自定义的泛型类型 `<A: 资源, P: 路径>`，
-配合继承与重载，实现对应抽象类和类中的方法。更多用法请查看示例中的 `Custom` 页面，该页面包含一个以
-`<File, Directory>` 为类型基础的选择器。
+`AssetPickerViewerProvider` 均已暴露且可重载。使用者可以使用自定义的泛型类型 <A: 资源, P: 路径>，配合继承与
+重载，实现对应抽象类和类中的方法。更多用法请查看示例中的 `Custom` 页面，该页面实现了以 <File, Directory> 为
+类型基础的选择器。
 
 ## 类介绍 💭
 

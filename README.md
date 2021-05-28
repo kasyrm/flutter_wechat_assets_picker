@@ -23,12 +23,9 @@ To take a photo or a video for assets, please check the detailed usage in the ex
 
 All UI designs are based on WeChat 7.x, and it will be updated following the WeChat update in anytime.
 
-*Note:* You can file PRs to create your own implementation if you found your implementation might be useful for others.
-See [Contribute custom implementations](example/lib/customs/CONTRIBUTING.md) for more details.
-
 ## Category 🗂
 
-* [Migration Guide](#migration-guide-%EF%B8%8F)
+* [Migration Guide](#migration-guide-)
 * [Features](#features-)
 * [Screenshots](#screenshots-)
 * [Preparing for use](#preparing-for-use-)
@@ -58,22 +55,21 @@ See [Migration Guide](guides/migration_guide.md).
 
 ## Features ✨
 
-- ♻️ Fully implementable with delegates override
-- 💚 99% simillar to WeChat style
-- ⚡️ Adjustable performance according to parameters
-- 📷 Image asset support
-  - 🔬 HEIC/HEIF Image type support
-- 🎥 Video asset support
-- 🎶 Audio asset support
-- 1️⃣ Single asset mode
-- 💱 i18n support
-  - ⏪ RTL language support
-- ➕ Special item builder (prepend/append) support
-- 🗂 Custom sort path delegate support
-- 📝 Custom text delegate support
-- ⏳ Custom filter options support ( `photo_manager` )
-- 🎏 Custom theme entirely
-- 💻 MacOS support
+- [x] ♻️ Fully implementable with delegate override
+- [x] 💚 99% simillar to WeChat style
+- [x] ⚡️ Adjustable performance according to parameters
+- [x] 📷 Image asset support
+  - [x] 🔬HEIC/HEIF Image type support
+- [x] 🎥 Video asset support
+- [x] 🎶 Audio asset support
+- [x] 1️⃣ Single asset mode
+- [x] 💱 i18n support
+- [x] ➕ Special item builder (prepend/append) support
+- [x] 🗂 Custom sort path delegate support
+- [x] 📝 Custom text delegate support
+- [x] ⏳ Custom filter options support ( `photo_manager` )
+- [x] 🎏 Custom theme entirely
+- [x] 💻 MacOS support
 
 ## Screenshots 📸
 
@@ -217,9 +213,9 @@ AssetPicker.unregisterObserve(); // Unregister callback.
 ### Customize with your own type or UI
 
 `AssetPickerBuilderDelegate`, `AssetPickerViewerBuilderDelegate`, `AssetPickerProvider` and
-`AssetPickerViewerProvider` are all exposed and overridable. You can extend them and use your own
-type with generic type `<A: Asset, P: Path>`, then implement abstract methods. See the `Custom` page
-in the example which has an implementation based on `<File, Directory>` types.
+`AssetPickerViewerProvider` are all exposed and overridable. You can extends them and use your own
+type with generic type <A: Asset, P: Path>, then implement abstract methods. See the `Custom` page
+in the example which implements a picker with <File, Directory>.
 
 ## Classes Introduction 💭
 
@@ -407,13 +403,7 @@ Many thanks to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/SchnMar"><img src="https://avatars3.githubusercontent.com/u/12902321?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Marcel Schneider</b></sub></a><br /><a href="https://github.com/fluttercandies/flutter_wechat_assets_picker/issues?q=author%3ASchnMar" title="Bug reports">🐛</a> <a href="https://github.com/fluttercandies/flutter_wechat_assets_picker/commits?author=SchnMar" title="Code">💻</a> <a href="#ideas-SchnMar" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/ganlanshu0211"><img src="https://avatars0.githubusercontent.com/u/9670379?v=4?s=50" width="50px;" alt=""/><br /><sub><b>ganlanshu0211</b></sub></a><br /><a href="https://github.com/fluttercandies/flutter_wechat_assets_picker/issues?q=author%3Aganlanshu0211" title="Bug reports">🐛</a> <a href="#ideas-ganlanshu0211" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/JasonHezz"><img src="https://avatars3.githubusercontent.com/u/15358765?v=4?s=50" width="50px;" alt=""/><br /><sub><b>JasonHezz</b></sub></a><br /><a href="https://github.com/fluttercandies/flutter_wechat_assets_picker/issues?q=author%3AJasonHezz" title="Bug reports">🐛</a> <a href="https://github.com/fluttercandies/flutter_wechat_assets_picker/commits?author=JasonHezz" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/yanivshaked"><img src="https://avatars.githubusercontent.com/u/13107481?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Yaniv Shaked</b></sub></a><br /><a href="#translation-yanivshaked" title="Translation">🌍</a> <a href="https://github.com/fluttercandies/flutter_wechat_assets_picker/commits?author=yanivshaked" title="Code">💻</a> <a href="https://github.com/fluttercandies/flutter_wechat_assets_picker/issues?q=author%3Ayanivshaked" title="Bug reports">🐛</a> <a href="#maintenance-yanivshaked" title="Maintenance">🚧</a></td>
-    <td align="center"><a href="https://github.com/avi-yadav"><img src="https://avatars.githubusercontent.com/u/7314430?v=4?s=50" width="50px;" alt=""/><br /><sub><b>avi-yadav</b></sub></a><br /><a href="https://github.com/fluttercandies/flutter_wechat_assets_picker/commits?author=avi-yadav" title="Code">💻</a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="https://github.com/Letalus"><img src="https://avatars.githubusercontent.com/u/41230136?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Letalus</b></sub></a><br /><a href="https://github.com/fluttercandies/flutter_wechat_assets_picker/issues?q=author%3ALetalus" title="Bug reports">🐛</a> <a href="#translation-Letalus" title="Translation">🌍</a></td>
-    <td align="center"><a href="https://github.com/greymag"><img src="https://avatars.githubusercontent.com/u/1502131?v=4?s=50" width="50px;" alt=""/><br /><sub><b>greymag</b></sub></a><br /><a href="#translation-greymag" title="Translation">🌍</a></td>
-    <td align="center"><a href="https://github.com/NaikSoftware"><img src="https://avatars.githubusercontent.com/u/4218994?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Nickolay Savchenko</b></sub></a><br /><a href="#design-NaikSoftware" title="Design">🎨</a></td>
+    <td align="center"><a href="https://github.com/yanivshaked"><img src="https://avatars.githubusercontent.com/u/13107481?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Yaniv Shaked</b></sub></a><br /><a href="#translation-yanivshaked" title="Translation">🌍</a> <a href="https://github.com/fluttercandies/flutter_wechat_assets_picker/commits?author=yanivshaked" title="Code">💻</a> <a href="https://github.com/fluttercandies/flutter_wechat_assets_picker/issues?q=author%3Ayanivshaked" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 

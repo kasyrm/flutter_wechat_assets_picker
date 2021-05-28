@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 
 /// Built a slide page transition for the picker.
 /// 为选择器构造一个上下进出的页面过渡动画
-class AssetPickerPageRoute<T> extends PageRoute<T> {
-  AssetPickerPageRoute({
+class SlidePageTransitionBuilder<T> extends PageRoute<T> {
+  SlidePageTransitionBuilder({
     required this.builder,
     this.transitionCurve = Curves.easeIn,
     this.transitionDuration = const Duration(milliseconds: 500),
@@ -58,9 +58,10 @@ class AssetPickerPageRoute<T> extends PageRoute<T> {
       position: Tween<Offset>(
         begin: const Offset(0, 1),
         end: Offset.zero,
-      ).animate(
-        CurvedAnimation(curve: transitionCurve, parent: animation),
-      ),
+      ).animate(CurvedAnimation(
+        curve: transitionCurve,
+        parent: animation,
+      )),
       child: child,
     );
   }

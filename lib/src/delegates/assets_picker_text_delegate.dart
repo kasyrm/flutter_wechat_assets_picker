@@ -108,6 +108,7 @@ class DefaultAssetsPickerTextDelegate implements AssetsPickerTextDelegate {
 }
 
 /// [AssetsPickerTextDelegate] implements with English.
+/// 英文文字实现
 class EnglishTextDelegate implements AssetsPickerTextDelegate {
   factory EnglishTextDelegate() => _instance;
 
@@ -188,94 +189,6 @@ class HebrewTextDelegate implements AssetsPickerTextDelegate {
 
   @override
   String unSupportedAssetType = 'סוג קובץ HEIC אינו נתמך';
-
-  @override
-  String durationIndicatorBuilder(Duration duration) =>
-      AssetsPickerTextDelegate.defaultDurationIndicatorBuilder(duration);
-}
-
-/// [AssetsPickerTextDelegate] implementiert mit der deutschen Übersetzung.
-/// Deutsche Textimplementierung.
-class GermanTextDelegate implements AssetsPickerTextDelegate {
-  factory GermanTextDelegate() => _instance;
-
-  GermanTextDelegate._internal();
-
-  static final GermanTextDelegate _instance = GermanTextDelegate._internal();
-
-  @override
-  String confirm = 'Bestätigen';
-
-  @override
-  String cancel = 'Abbrechen';
-
-  @override
-  String edit = 'Bearbeiten';
-
-  @override
-  String gifIndicator = 'GIF';
-
-  @override
-  String heicNotSupported = 'HEIC Format ist nicht unterstützt.';
-
-  @override
-  String loadFailed = 'Ladevorgang ist fehlgeschlagen';
-
-  @override
-  String original = 'Ursprung';
-
-  @override
-  String preview = 'Vorschau';
-
-  @override
-  String select = 'Auswählen';
-
-  @override
-  String unSupportedAssetType = 'HEIC Format ist nicht unterstützt.';
-
-  @override
-  String durationIndicatorBuilder(Duration duration) =>
-      AssetsPickerTextDelegate.defaultDurationIndicatorBuilder(duration);
-}
-
-/// [AssetsPickerTextDelegate] implements with Russian.
-/// Локализация на русский язык.
-class RussianTextDelegate implements AssetsPickerTextDelegate {
-  factory RussianTextDelegate() => _instance;
-
-  RussianTextDelegate._internal();
-
-  static final RussianTextDelegate _instance = RussianTextDelegate._internal();
-
-  @override
-  String confirm = 'Готово';
-
-  @override
-  String cancel = 'Отмена';
-
-  @override
-  String edit = 'Изменить';
-
-  @override
-  String gifIndicator = 'GIF';
-
-  @override
-  String heicNotSupported = 'Формат HEIC не поддерживается.';
-
-  @override
-  String loadFailed = 'Ошибка при загрузке';
-
-  @override
-  String original = 'Исходное';
-
-  @override
-  String preview = 'Предпросмотр';
-
-  @override
-  String select = 'Выбрать';
-
-  @override
-  String unSupportedAssetType = 'Неподдерживаемый формат ресурса.';
 
   @override
   String durationIndicatorBuilder(Duration duration) =>

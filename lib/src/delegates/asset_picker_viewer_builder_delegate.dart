@@ -367,7 +367,11 @@ class DefaultAssetPickerViewerBuilderDelegate
     return Positioned.fill(
       child: RepaintBoundary(
         child: ExtendedImage(
-          image: AssetEntityImageProvider(asset, isOriginal: false),
+          image: AssetEntityImageProvider(
+            asset,
+            isOriginal: previewThumbSize == null,
+            thumbSize: previewThumbSize,
+          ),
           fit: BoxFit.cover,
         ),
       ),
@@ -384,7 +388,7 @@ class DefaultAssetPickerViewerBuilderDelegate
           Center(
             child: Icon(
               Icons.video_library,
-              color: themeData.iconTheme.color?.withOpacity(0.54),
+              color: themeData.colorScheme.surface.withOpacity(0.54),
             ),
           ),
         ],
@@ -398,18 +402,17 @@ class DefaultAssetPickerViewerBuilderDelegate
     return ValueListenableBuilder2<bool, int>(
       firstNotifier: isDisplayingDetail,
       secondNotifier: selectedNotifier,
-      builder: (_, bool value, int count, Widget? child) =>
-          AnimatedPositionedDirectional(
+      builder: (_, bool value, int count, Widget? child) => AnimatedPositioned(
         duration: kThemeAnimationDuration,
         curve: Curves.easeInOut,
         bottom: value ? 0.0 : -(Screens.bottomSafeHeight + bottomDetailHeight),
-        start: 0.0,
-        end: 0.0,
+        left: 0.0,
+        right: 0.0,
         height: Screens.bottomSafeHeight + bottomDetailHeight,
         child: child!,
       ),
       child: Container(
-        padding: EdgeInsetsDirectional.only(bottom: Screens.bottomSafeHeight),
+        padding: EdgeInsets.only(bottom: Screens.bottomSafeHeight),
         child: ChangeNotifierProvider<
             AssetPickerViewerProvider<AssetEntity>>.value(
           value: provider!,
@@ -537,20 +540,17 @@ class DefaultAssetPickerViewerBuilderDelegate
   Widget appBar(BuildContext context) {
     return ValueListenableBuilder<bool>(
       valueListenable: isDisplayingDetail,
-      builder: (_, bool value, Widget? child) => AnimatedPositionedDirectional(
+      builder: (_, bool value, Widget? child) => AnimatedPositioned(
         duration: kThemeAnimationDuration,
         curve: Curves.easeInOut,
         top: value ? 0.0 : -(Screens.topSafeHeight + kToolbarHeight),
-        start: 0.0,
-        end: 0.0,
+        left: 0.0,
+        right: 0.0,
         height: Screens.topSafeHeight + kToolbarHeight,
         child: child!,
       ),
       child: Container(
-        padding: EdgeInsetsDirectional.only(
-          top: Screens.topSafeHeight,
-          end: 12.0,
-        ),
+        padding: EdgeInsets.only(top: Screens.topSafeHeight, right: 12.0),
         color: themeData.canvasColor.withOpacity(0.85),
         child: Row(
           children: <Widget>[
@@ -579,8 +579,8 @@ class DefaultAssetPickerViewerBuilderDelegate
     );
   }
 
-  /// It'll pop with [AssetPickerProvider.selectedAssets] when there are
-  /// any assets were chosen. Then, the assets picker will pop too.
+  /// It'll pop with [AssetPickerProvider.selectedAssets] when there're any
+  /// assets chosen. The [PhotoSelector] will recognize and pop too.
   /// 当有资源已选时，点击按钮将把已选资源通过路由返回。
   /// 资源选择器将识别并一同返回。
   @override
@@ -615,7 +615,7 @@ class DefaultAssetPickerViewerBuilderDelegate
                 }
                 if (provider!.isSelectedNotEmpty) {
                   return '${Constants.textDelegate.confirm}'
-                      ' (${provider.currentlySelectedAssets.length}'
+                      '(${provider.currentlySelectedAssets.length}'
                       '/'
                       '${selectorProvider!.maxAssets})';
                 }
@@ -652,7 +652,7 @@ class DefaultAssetPickerViewerBuilderDelegate
   /// 苹果系列系统的选择按钮
   Widget _appleOSSelectButton(bool isSelected, AssetEntity asset) {
     return Padding(
-      padding: const EdgeInsetsDirectional.only(end: 10.0),
+      padding: const EdgeInsets.only(right: 10.0),
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () {
@@ -756,10 +756,9 @@ class DefaultAssetPickerViewerBuilderDelegate
       child: Theme(
         data: themeData,
         child: AnnotatedRegion<SystemUiOverlayStyle>(
-          value: themeData.appBarTheme.systemOverlayStyle ??
-              (themeData.effectiveBrightness.isDark
-                  ? SystemUiOverlayStyle.light
-                  : SystemUiOverlayStyle.dark),
+          value: themeData.brightness.isDark
+              ? SystemUiOverlayStyle.light
+              : SystemUiOverlayStyle.dark,
           child: Material(
             color: Colors.black,
             child: Stack(
